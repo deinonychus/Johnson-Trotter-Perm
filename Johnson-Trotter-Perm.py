@@ -1,6 +1,6 @@
 sMyList = '0123'
 iList = [[int(item), -1] for item in sMyList]
-k = n = 0
+k = n = 1
 
 def getmobile():
     global k, iList
@@ -34,14 +34,19 @@ def reverse():
             iList[i][1] *= -1
 
 
-print(n, iList)
-n += 1
+def write_list():
+    global n, iList
+    for i in range(len(iList)):
+        print(iList[i][0], end="")
+    print("  #", n, sep="", end="\n")
+    n += 1
+
+
+write_list()
 if getmobile():
     swap()
-    print(n, iList)
-    n += 1
+    write_list()
 while getmobile():     # k: index of largest mobile
     reverse()
     swap()
-    print(n, iList)
-    n += 1
+    write_list()
